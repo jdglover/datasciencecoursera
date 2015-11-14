@@ -1,7 +1,6 @@
 pollutantmean <- function(directory, pollutant, id) {
     # Computes the mean of the pollutant across all monitors ignoring
     # NA values.
-    #
     # Args:
     #    directory: A character vector indicating the location of the csv 
     #               files.
