@@ -1,5 +1,5 @@
 complete <- function(directory, id = 1:332) {
-    # Filters for complete cases from monitors
+    # Counts cases from monitors
     #
     # Args:
     #    directory: A character vector of length 1 indicating the location 
@@ -12,12 +12,11 @@ complete <- function(directory, id = 1:332) {
     data_files <- list.files(wd, pattern="*.csv")
     columns <- c("sulfate", "nitrate", "ID")
     results_df <- data.frame(matrix(ncol = 2, nrow = 0))
-    for (each in id) {
-        temp_df <- read.csv(paste(wd, data_files[each], sep="/"))
-        complete_rows <- complete.cases(temp_df[columns])
-        temp_df <- temp_df[complete_rows, columns]
-        values <- (c(temp_df[1, columns[3]], nrow(temp_df)))
-        results_df <- rbind(results_df, values)
+    for (file_idx in id) {
+        temp_df <- read.csv(paste(wd, data_files[file_idx], sep="/"))
+        complete_rows <- temp_df[complete.cases(temp_df[columns]), columns]
+        temp_df_values <- (c(temp_df[1, columns[3]], nrow(complete_rows)))
+        results_df <- rbind(results_df, temp_df_values)
     }
     colnames(results_df) <- c("id", "nobs")
     return(results_df)
