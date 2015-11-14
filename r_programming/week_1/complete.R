@@ -1,5 +1,5 @@
 complete <- function(directory, id = 1:332) {
-    # Counts cases from monitors
+    # Counts complete cases from air quality monitors
     #
     # Args:
     #    directory: A character vector of length 1 indicating the location 
