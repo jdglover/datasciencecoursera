@@ -1,4 +1,17 @@
 rankhospital <- function(state, outcome, num = "best") {
+    # Determines the Nth ranked hospital for a given condition in a given state.
+    #
+    # Args: 
+    #    state: A character vector of length 1 that is the two letter
+    #           abbreviation for the state of interest (e.g., "PA").
+    #    outcome: A character vector of length 1. Possible conditions are 
+    #           "heart attack", "heart failure", and "pneumonia".
+    #    num: The ranked hospital. Possible values are "best', "worst", or
+    #         a numerical ranking (e.g., 5).
+    #
+    # Returns:
+    #    A character vector indicating the Nth ranked hospital in a state for a 
+    #    particular outcome.
     data <- read.csv("outcome-of-care-measures.csv", stringsAsFactors = FALSE)
     
     poss_states <- unique(data$State)

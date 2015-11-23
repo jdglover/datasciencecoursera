@@ -7,7 +7,7 @@ best <- function(state, outcome) {
     #    outcome: A character vector of length 1. Possible conditions are 
     #           "heart attack", "heart failure", and "pneumonia".
     # Returns:
-    #    A character vector indicating the best hospital in a state a 
+    #    A character vector indicating the best hospital in a state for a 
     #    particular outcome.
     data <- read.csv("outcome-of-care-measures.csv", stringsAsFactors = FALSE)
     
